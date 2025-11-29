@@ -1,0 +1,7 @@
+{
+  "require": "config/setup.js",
+  "timeout": 60000,
+  "slow": 5000,
+  "exit": true,
+  "spec": "tests/**/*.test.js"
+}
