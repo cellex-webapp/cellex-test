@@ -1,0 +1,270 @@
+{
+  "description": "Dữ liệu kiểm thử cho Cellex E-commerce Application",
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-01",
+  
+  "baseUrl": "http://localhost:5173",
+  
+  "users": {
+    "admin": {
+      "email": "admin@gmail.com",
+      "password": "password123",
+      "role": "ADMIN",
+      "fullName": "Admin User",
+      "description": "Tài khoản admin để test các chức năng quản trị"
+    },
+    "vendor": {
+      "email": "vendor@gmail.com",
+      "password": "password123",
+      "role": "VENDOR",
+      "fullName": "Vendor User",
+      "shopName": "Test Shop",
+      "description": "Tài khoản vendor để test các chức năng bán hàng"
+    },
+    "client": {
+      "email": "user@gmail.com",
+      "password": "password123",
+      "role": "CLIENT",
+      "fullName": "Client User",
+      "phone": "0901234567",
+      "description": "Tài khoản khách hàng để test các chức năng mua hàng"
+    },
+    "testUser": {
+      "email": "testuser@gmail.com",
+      "password": "Test@123456",
+      "role": "CLIENT",
+      "fullName": "Test User",
+      "phone": "0912345678",
+      "description": "Tài khoản test để có thể bị ban/unban"
+    }
+  },
+  
+  "registration": {
+    "validUser": {
+      "fullName": "Nguyễn Văn A",
+      "email": "nguyenvana@example.com",
+      "phone": "0987654321",
+      "password": "Test@123456",
+      "confirmPassword": "Test@123456"
+    },
+    "testOTPCode": "123456",
+    "note": "Email và số điện thoại phải unique cho mỗi lần test. Sử dụng timestamp để tạo email unique: testuser{timestamp}@example.com"
+  },
+  
+  "products": {
+    "testProduct": {
+      "name": "iPhone 15 Pro Max Test",
+      "category": "Điện thoại",
+      "price": 29990000,
+      "saleOff": 10,
+      "stockQuantity": 50,
+      "description": "Sản phẩm test được tạo bởi automated test",
+      "images": []
+    },
+    "categories": [
+      "Điện thoại",
+      "Laptop",
+      "Tablet",
+      "Phụ kiện",
+      "Âm thanh",
+      "Đồng hồ",
+      "Nhà thông minh"
+    ]
+  },
+  
+  "chat": {
+    "testMessage": "Xin chào, tôi muốn hỏi về sản phẩm",
+    "testReply": "Cảm ơn bạn đã liên hệ",
+    "note": "Chat test yêu cầu có conversation đang hoạt động. Admin/Vendor cần có tin nhắn từ client để test."
+  },
+  
+  "banReasons": [
+    "Vi phạm chính sách sử dụng",
+    "Spam tin nhắn",
+    "Hành vi lừa đảo",
+    "Đăng nội dung không phù hợp",
+    "Test automated ban/unban functionality"
+  ],
+  
+  "cart": {
+    "note": "Test giỏ hàng yêu cầu có sản phẩm available trong hệ thống",
+    "testQuantity": 1
+  },
+  
+  "validationMessages": {
+    "emptyEmail": "Vui lòng nhập email",
+    "emptyPassword": "Vui lòng nhập mật khẩu",
+    "invalidEmail": "Email không hợp lệ",
+    "passwordMismatch": "Mật khẩu không khớp",
+    "requiredField": "Trường này là bắt buộc"
+  },
+  
+  "routes": {
+    "login": "/login",
+    "signup": "/signup",
+    "home": "/",
+    "cart": "/cart",
+    "products": "/products",
+    "productDetail": "/products/{id}",
+    "vendorProducts": "/vendor/products",
+    "vendorChat": "/vendor/chat",
+    "adminUsers": "/admin/users",
+    "adminChat": "/admin/chat",
+    "account": "/account",
+    "accountMessages": "/account?tab=messages",
+    "checkout": "/checkout",
+    "orders": "/orders"
+  },
+  
+  "testConfiguration": {
+    "browser": "chrome",
+    "headless": false,
+    "timeout": 60000,
+    "implicitWait": 10000,
+    "pageLoadTimeout": 30000,
+    "screenshotOnFailure": true
+  },
+  
+  "selectors": {
+    "loginForm": {
+      "emailInput": "input[placeholder='Nhập email hoặc số điện thoại']",
+      "passwordInput": "input[placeholder='Nhập mật khẩu']",
+      "submitButton": "button[type='submit']",
+      "signupLink": "button:contains('Đăng ký')"
+    },
+    "signupForm": {
+      "fullNameInput": "input[placeholder='Nhập họ và tên']",
+      "emailInput": "input[placeholder='Nhập email']",
+      "phoneInput": "input[placeholder='Nhập số điện thoại']",
+      "passwordInput": "input[placeholder='Tạo mật khẩu']",
+      "confirmPasswordInput": "input[placeholder='Xác nhận mật khẩu']",
+      "submitButton": "button[type='submit']"
+    },
+    "header": {
+      "cartBadge": ".ant-badge .ant-badge-count",
+      "cartButton": "a[href='/cart']",
+      "notificationButton": "button[aria-label='Thông báo']",
+      "messageButton": "button[aria-label='Tin nhắn']",
+      "accountButton": "a[href='/account']"
+    },
+    "productCard": {
+      "card": ".ant-card-hoverable",
+      "name": ".line-clamp-2",
+      "price": ".text-orange-600",
+      "link": "a[href*='/products/']"
+    },
+    "productDetail": {
+      "addToCartButton": "button[aria-label='Thêm vào giỏ']",
+      "buyNowButton": "button:contains('Mua ngay')",
+      "quantityInput": ".ant-input-number-input"
+    },
+    "vendorProduct": {
+      "addButton": "button:contains('Tạo sản phẩm')",
+      "modal": ".ant-modal",
+      "categorySelect": ".ant-select-selector",
+      "nameInput": "input[placeholder='Nhập tên sản phẩm']",
+      "priceInput": ".ant-input-number-input",
+      "saveButton": "button:contains('Lưu sản phẩm')"
+    },
+    "adminUsers": {
+      "userTable": ".ant-table",
+      "userRow": ".ant-table-row",
+      "lockButton": "button .anticon-lock",
+      "banModal": ".ant-modal",
+      "banReasonTextarea": "textarea[placeholder*='Nhập lý do khóa']",
+      "confirmButton": "button:contains('Khóa')"
+    },
+    "chat": {
+      "chatWindow": ".flex-1.flex.flex-col.h-full",
+      "messageInput": "textarea[placeholder='Nhập tin nhắn...']",
+      "sendButton": "button.ant-btn-primary .anticon-send",
+      "messageBubble": ".flex.items-end, .flex.items-start"
+    }
+  },
+  
+  "testScenarios": {
+    "TC_AUTH_021": {
+      "name": "UI Validation on Empty Submit",
+      "description": "Kiểm tra validation khi submit form trống",
+      "page": "Login & Signup",
+      "expectedBehavior": "Hiển thị lỗi validation, form không submit"
+    },
+    "TC_AUTH_063": {
+      "name": "Full Registration Flow",
+      "description": "Kiểm tra luồng đăng ký đầy đủ",
+      "steps": [
+        "Navigate to signup page",
+        "Fill registration form",
+        "Submit form",
+        "Verify OTP page",
+        "Enter OTP",
+        "Verify success"
+      ]
+    },
+    "TC_CL_078": {
+      "name": "Real-time Cart Badge Sync",
+      "description": "Kiểm tra đồng bộ badge giỏ hàng real-time",
+      "expectedBehavior": "Badge cập nhật ngay lập tức khi thêm sản phẩm vào giỏ"
+    },
+    "TC_VEND_013": {
+      "name": "Vendor Product Creation",
+      "description": "Kiểm tra tạo sản phẩm bởi vendor",
+      "requiredFields": [
+        "name",
+        "category",
+        "price",
+        "stockQuantity"
+      ]
+    },
+    "TC_AM_98": {
+      "name": "Admin Ban User Workflow",
+      "description": "Kiểm tra luồng ban user bởi admin",
+      "steps": [
+        "Login as admin",
+        "Navigate to users page",
+        "Find target user",
+        "Click lock button",
+        "Enter ban reason",
+        "Confirm ban",
+        "Verify status change"
+      ]
+    },
+    "TC_SUP_001": {
+      "name": "Real-time Chat Messaging",
+      "description": "Kiểm tra gửi tin nhắn real-time",
+      "expectedBehavior": "Tin nhắn hiển thị ngay lập tức sau khi gửi"
+    }
+  },
+  
+  "environmentVariables": {
+    "TEST_USER_EMAIL": "user@gmail.com",
+    "TEST_USER_PASSWORD": "password123",
+    "TEST_VENDOR_EMAIL": "vendor@gmail.com",
+    "TEST_VENDOR_PASSWORD": "password123",
+    "TEST_ADMIN_EMAIL": "admin@gmail.com",
+    "TEST_ADMIN_PASSWORD": "password123",
+    "TEST_TARGET_USER_EMAIL": "testuser@gmail.com",
+    "TEST_CHAT_USER_EMAIL": "admin@gmail.com",
+    "TEST_CHAT_USER_PASSWORD": "password123",
+    "BASE_URL": "http://localhost:5173"
+  },
+  
+  "setupInstructions": {
+    "1_database": "Cần có database với dữ liệu mẫu (users, products, categories)",
+    "2_users": "Tạo các user accounts: admin, vendor, client với thông tin trong section 'users'",
+    "3_products": "Tạo ít nhất 5 sản phẩm để test listing và detail pages",
+    "4_categories": "Tạo các danh mục sản phẩm trong section 'products.categories'",
+    "5_backend": "Backend API phải chạy và accessible",
+    "6_frontend": "Frontend phải chạy tại BASE_URL (default: http://localhost:5173)",
+    "7_env": "Copy các environment variables vào file .env trong thư mục cellex-test",
+    "8_chromedriver": "Cài đặt chromedriver phù hợp với phiên bản Chrome"
+  },
+  
+  "notes": {
+    "authentication": "Tất cả test yêu cầu user authenticated trừ login và signup tests",
+    "uniqueData": "Sử dụng timestamp để tạo dữ liệu unique cho mỗi test run (email, phone, product name)",
+    "cleanup": "Một số test có thể cần cleanup sau khi chạy (xóa sản phẩm test, unban user)",
+    "timing": "Các test có thể cần điều chỉnh sleep/wait times tùy thuộc vào hiệu năng hệ thống",
+    "browserState": "Mỗi test suite tạo browser instance riêng, không chia sẻ state giữa các test"
+  }
+}
