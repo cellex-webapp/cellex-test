@@ -16,17 +16,6 @@ Dự án cung cấp bộ test automation hoàn chỉnh cho ứng dụng Cellex E
 - **Test Data**: Quản lý dữ liệu tập trung với JSON configuration  
 - **Reporting**: HTML reports với Mochawesome và screenshots tự động
 
-## 🎯 Test Cases
-
-| Test ID | Mô tả | Trang kiểm thử |
-|---------|-------|----------------|
-| TC_AUTH_021 | UI Validation on Empty Submit | Login/Signup |
-| TC_AUTH_063 | Full Registration Flow | Signup → OTP → Home |
-| TC_CL_078 | Real-time Cart Badge Sync | Product → Cart |
-| TC_VEND_013 | Vendor Product Creation | Vendor Products |
-| TC_AM_98 | Admin Ban User Workflow | Admin Users |
-| TC_SUP_001 | Real-time Chat Messaging | Chat |
-
 ## 🛠️ Công nghệ
 
 | Technology | Version | Mục đích |
